@@ -6,7 +6,7 @@
 <div id="header">
   <div class="post-nav">
     {%- if not default_home_page -%}
-    <a href="/mywiki/">Home</a>
+    <a href="{{ site.root }}/">Home</a>
       {%- if page.category -%}
         {%- for c in page.category.split("/") -%}
           {%- if loop.first -%}
@@ -14,7 +14,7 @@
           {%- else -%}
             {% set id = id ~ "-" ~ c -%}
           {%- endif -%}
-          &nbsp;&#187;&nbsp;<a href="/mywiki/#{{ id }}">{{ c }}</a>
+          &nbsp;&#187;&nbsp;<a href="{{ site.root }}/#{{ id }}">{{ c }}</a>
         {%- endfor -%}
       {%- endif -%}
       &nbsp;&#187;&nbsp;{{ page.title }}
