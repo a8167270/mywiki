@@ -1,8 +1,8 @@
 ---
 title: "API"
 layout: page
-date: 2017-06-02 00:00
-collection: ptyon
+date: 2017-05-22
+collection: Python
 ---
 [TOC]
 
