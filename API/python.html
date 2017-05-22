@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="Stylesheet" type="text/css" href="/mywiki/static/css/style.css">
+    <link rel="Stylesheet" type="text/css" href="/mywiki/static/css/tango.css">
+    <link rel="shortcut icon" href="/mywiki/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/mywiki/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+    <title>Getting Started - Liu Yun's Wiki</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+
+  <body>
+    <div id="container">
+      
+<div id="header">
+  <div class="post-nav"><a href="/mywiki/">Home</a>&nbsp;&#187;&nbsp;<a href="/mywiki/#API">API</a>&nbsp;&#187;&nbsp;Getting Started
+    <span class="updated">Updated&nbsp;
+      2017-06-02 00:00
+    </span></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="page_title">Getting Started</div>
+
+  <h1 id="_1">字符串填充</h1>
+<p>python中有一个zfill方法用来给字符串前面补0，非常有用</p>
+<div class="hlcode"><pre><span class="n">n</span> <span class="o">=</span> <span class="s">&quot;123&quot;</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">s</span> <span class="o">==</span> <span class="s">&quot;00123&quot;</span>
+</pre></div>
+
+
+<p>zfill()也可以给负数补0</p>
+<div class="hlcode"><pre><span class="n">n</span> <span class="o">=</span> <span class="s">&quot;-123&quot;</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">s</span> <span class="o">==</span> <span class="s">&quot;-0123&quot;</span>
+</pre></div>
+
+
+<p>对于纯数字，我们也可以通过格式化的方式来补0</p>
+<div class="hlcode"><pre><span class="n">n</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%05d</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">n</span>
+<span class="k">assert</span> <span class="n">s</span> <span class="o">==</span> <span class="s">&quot;00123&quot;</span>
+</pre></div>
+    </div>
+    <div id="footer">
+      <span>
+        <p>Copyright © 2017 liuyun.
+        Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
+        <p>Site Generated 2017-05-22 13:34:08</p>
+      </span>
+    </div>
+  </body>
+</html>
