@@ -1,7 +1,8 @@
 ---
-title: "Getting Started"
+title: "Simiki"
 layout: page
-date: 2099-06-02 00:00
+date: 2017-06-02 00:00
+collection: Manager
 ---
 
 [TOC]
