@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="Stylesheet" type="text/css" href="/mywiki/static/css/style.css">
+    <link rel="Stylesheet" type="text/css" href="/mywiki/static/css/tango.css">
+    <link rel="shortcut icon" href="/mywiki/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/mywiki/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+    <title>Linux基本命令 - Liu Yun's Wiki</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+
+  <body>
+    <div id="container">
+      
+<div id="header">
+  <div class="post-nav"><a href="/mywiki/">Home</a>&nbsp;&#187;&nbsp;<a href="/mywiki/#Linux">Linux</a>&nbsp;&#187;&nbsp;Linux基本命令
+    <span class="updated">Updated&nbsp;
+      2018-01-08 00:00
+    </span></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="page_title">Linux基本命令</div>
+
+  <h2 id="_1">设置全局命令</h2>
+<ol>
+<li>修改.bashrc</li>
+</ol>
+<p>```shell<br />
+   vim /root/.bashrc</p>
+<p># 在文件中添加<br />
+   export PATH = $PATH:/home/pj/software/MATLAB/MATLAB_Production_Server/R2013a/bin<br />
+<code>``
+   此时还不能运行，会提示</code>Permission denied`错误，需要设置文件远行权限。</p>
+<ol>
+<li>修改文件权限</li>
+</ol>
+<p><code>shell
+   sudo chmod +x "文件名"</code></p>
+<p>​</p>
+<h2 id="tar">tar命令</h2>
+<p>-c: 建立压缩档案<br />
+-x：解压<br />
+-t：查看内容<br />
+-r：向压缩归档文件末尾追加文件<br />
+-u：更新原压缩包中的文件</p>
+<p>五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。</p>
+<p>-z：有gzip属性的<br />
+-j：有bz2属性的<br />
+-Z：有compress属性的<br />
+-v：显示所有过程<br />
+-O：将文件解开到标准输出</p>
+<p>以上参数是根据需要在压缩或解压档案时可选的。</p>
+<p>压缩</p>
+<div class="hlcode"><pre><span class="cp"># 将目录里所有jpg文件打包成tar.jpg </span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">cvf</span> <span class="n">jpg</span><span class="p">.</span><span class="n">tar</span> <span class="o">*</span><span class="p">.</span><span class="n">jpg</span> 
+
+<span class="cp"># 将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">czf</span> <span class="n">jpg</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> <span class="o">*</span><span class="p">.</span><span class="n">jpg</span>  
+
+<span class="cp"># 将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">cjf</span> <span class="n">jpg</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">bz2</span> <span class="o">*</span><span class="p">.</span><span class="n">jpg</span> 
+
+<span class="cp"># 将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Zxxxxxxxxxx 参数是根据需要在压缩或解压档案时可选的。</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">cZf</span> <span class="n">jpg</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">Z</span> <span class="o">*</span><span class="p">.</span><span class="n">jpg</span>   
+</pre></div>
+
+
+<p>解压</p>
+<div class="hlcode"><pre><span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">file</span><span class="p">.</span><span class="n">tar</span> <span class="err">#解压</span> <span class="n">tar</span><span class="err">包</span>
+
+<span class="n">tar</span> <span class="o">-</span><span class="n">xzvf</span> <span class="n">file</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span> <span class="err">#解压</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+
+<span class="n">tar</span> <span class="o">-</span><span class="n">xjvf</span> <span class="n">file</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">bz2</span>   <span class="err">#解压</span> <span class="n">tar</span><span class="p">.</span><span class="n">bz2</span>
+
+<span class="n">tar</span> <span class="o">-</span><span class="n">xZvf</span> <span class="n">file</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">Z</span>   <span class="err">#解压</span><span class="n">tar</span><span class="p">.</span><span class="n">Z</span>
+
+<span class="n">unrar</span> <span class="n">e</span> <span class="n">file</span><span class="p">.</span><span class="n">rar</span> <span class="err">#解压</span><span class="n">rar</span>
+
+<span class="n">unzip</span> <span class="n">file</span><span class="p">.</span><span class="n">zip</span> <span class="err">#解压</span><span class="n">zip</span>
+</pre></div>
+    </div>
+    <div id="footer">
+      <span>
+        <p>Copyright © 2018 liuyun.
+        Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
+        <p>Site Generated 2018-01-09 14:23:48</p>
+      </span>
+    </div>
+  </body>
+</html>
