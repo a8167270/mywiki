@@ -21,10 +21,6 @@ git commit -m message
 # 文件删除
 git rm
 ```
-## 文件上传、下载
-```shell
-git pull
-```
 
 ## 查看状态
 
@@ -59,8 +55,17 @@ git clone git@github.com:michaelliao/gitskills.git
 # 绑定远程仓库
 git remote add origin git@github.com:michaelliao/learngit.git
 
+# 删除远程仓库
+git remote rm <仓库名>
+
+# 远程仓库的改名
+git remote rename <原主机名> <新主机名>
+
 #  推送到master分支
  git push -u origin master
+
+# 从某个分支下载
+ git pull origin branch
 ```
 ## 分支操作
 
@@ -91,4 +96,30 @@ git log --graph
 ```shell
 # Git 显示颜色
 git config --global color.ui true
+
+# 参看远程主机的网址
+git remote -v
+```
+
+## 示例：同一文件夹下，同一库的两个版本
+
+```shell
+cd output
+git init
+git checkout -b gh-pages
+git add .
+git commit -m 'your comment'
+# 以下步骤会在 Github 上创建一个空项目后提示
+git remote add origin git@github.com:<username>/<projectname>.git
+git push -u origin gh-pages
+```
+回到上层目录
+
+```shell
+git init
+git add .
+git commit -m 'your comment'
+# 以下步骤会在 Github 上创建一个空项目后提示
+git remote add origin git@github.com:<username>/<projectname>.git
+git push -u origin master
 ```
