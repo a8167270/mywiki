@@ -26,36 +26,26 @@
 <div class="page_title">Java 工具</div>
 
   <div class="toc"><span class="toctitle">Table of Contents</span><ul>
-<li><a href="#_1">获取当前时间，年月日</a></li>
+<li><a href="#_1">列表使用符号连接</a></li>
+<li><a href="#mapperjsonarray">mapper读取JsonArray</a></li>
 </ul>
 </div>
-<h1 id="_1">获取当前时间，年月日</h1>
-<div class="hlcode"><pre>        <span class="n">Calendar</span> <span class="n">now</span> <span class="o">=</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>  
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;年: &quot;</span> <span class="o">+</span> <span class="n">now</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">YEAR</span><span class="o">));</span>  
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;月: &quot;</span> <span class="o">+</span> <span class="o">(</span><span class="n">now</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">MONTH</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot;&quot;</span><span class="o">);</span>  
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;日: &quot;</span> <span class="o">+</span> <span class="n">now</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">DAY_OF_MONTH</span><span class="o">));</span>  
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;时: &quot;</span> <span class="o">+</span> <span class="n">now</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">HOUR_OF_DAY</span><span class="o">));</span>  
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;分: &quot;</span> <span class="o">+</span> <span class="n">now</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">MINUTE</span><span class="o">));</span>  
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;秒: &quot;</span> <span class="o">+</span> <span class="n">now</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">SECOND</span><span class="o">));</span>  
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;当前时间毫秒数：&quot;</span> <span class="o">+</span> <span class="n">now</span><span class="o">.</span><span class="na">getTimeInMillis</span><span class="o">());</span>  
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">now</span><span class="o">.</span><span class="na">getTime</span><span class="o">());</span>  
+<h2 id="_1">列表使用符号连接</h2>
+<div class="hlcode"><pre><span class="c1">//使用&#39;,&#39;连接list</span>
+<span class="n">String</span> <span class="n">a</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">,</span> <span class="n">list</span><span class="o">;</span>
+</pre></div>
 
-        <span class="n">Date</span> <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="o">();</span>  
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">d</span><span class="o">);</span>  
-        <span class="n">SimpleDateFormat</span> <span class="n">sdf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDateFormat</span><span class="o">(</span><span class="s">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="o">);</span>  
-        <span class="n">String</span> <span class="n">dateNowStr</span> <span class="o">=</span> <span class="n">sdf</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">d</span><span class="o">);</span>  
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;格式化后的日期：&quot;</span> <span class="o">+</span> <span class="n">dateNowStr</span><span class="o">);</span>  
 
-        <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;2012-1-13 17:26:33&quot;</span><span class="o">;</span>  <span class="c1">//要跟上面sdf定义的格式一样  </span>
-        <span class="n">Date</span> <span class="n">today</span> <span class="o">=</span> <span class="n">sdf</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>  
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;字符串转成日期：&quot;</span> <span class="o">+</span> <span class="n">today</span><span class="o">);</span>  
+<h2 id="mapperjsonarray">mapper读取JsonArray</h2>
+<div class="hlcode"><pre><span class="n">JavaType</span> <span class="n">javaType</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">getTypeFactory</span><span class="o">().</span><span class="na">constructParametricType</span><span class="o">(</span><span class="n">ArrayList</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">String</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">configStr</span><span class="o">,</span> <span class="n">javaType</span><span class="o">);</span>
 </pre></div>
     </div>
     <div id="footer">
       <span>
         <p>Copyright © 2018 liuyun.
         Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
-        <p>Site Generated 2018-01-09 14:47:09</p>
+        <p>Site Generated 2018-08-09 20:37:43</p>
       </span>
     </div>
   </body>
