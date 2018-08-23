@@ -28,6 +28,7 @@
   <div class="toc"><span class="toctitle">Table of Contents</span><ul>
 <li><a href="#_1">列表使用符号连接</a></li>
 <li><a href="#mapperjsonarray">mapper读取JsonArray</a></li>
+<li><a href="#list-map">list 转换为map</a></li>
 </ul>
 </div>
 <h2 id="_1">列表使用符号连接</h2>
@@ -40,12 +41,23 @@
 <div class="hlcode"><pre><span class="n">JavaType</span> <span class="n">javaType</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="na">getTypeFactory</span><span class="o">().</span><span class="na">constructParametricType</span><span class="o">(</span><span class="n">ArrayList</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">String</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">configStr</span><span class="o">,</span> <span class="n">javaType</span><span class="o">);</span>
 </pre></div>
+
+
+<h2 id="list-map">list 转换为map</h2>
+<div class="hlcode"><pre><span class="n">Map</span><span class="o">&lt;</span><span class="n">City</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span>
+<span class="o">.</span><span class="na">groupingBy</span><span class="o">(</span><span class="nl">Person:</span><span class="o">:</span><span class="n">getCollege</span><span class="o">,</span> <span class="nl">HashMap:</span><span class="o">:</span><span class="k">new</span><span class="o">,</span> <span class="n">Collectors</span><span class="o">.</span><span class="na">mapping</span><span class="o">(</span><span class="nl">Person:</span><span class="o">:</span><span class="n">getLastName</span><span class="o">,</span> <span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">())));</span>
+</pre></div>
+
+
+<div class="hlcode"><pre><span class="n">Map</span><span class="o">&lt;</span><span class="n">City</span><span class="o">,</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">namesByCity</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">groupingBy</span><span class="o">(</span><span class="nl">Person:</span><span class="o">:</span><span class="n">getCity</span><span class="o">,</span> <span class="nl">TreeMap:</span><span class="o">:</span><span class="k">new</span><span class="o">,</span><span class="n">mapping</span><span class="o">(</span><span class="nl">Person:</span><span class="o">:</span><span class="n">getLastName</span><span class="o">,</span><span class="n">toSet</span><span class="o">())));</span>
+</pre></div>
     </div>
     <div id="footer">
       <span>
         <p>Copyright © 2018 liuyun.
         Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
-        <p>Site Generated 2018-08-09 20:37:43</p>
+        <p>Site Generated 2018-08-23 09:30:18</p>
       </span>
     </div>
   </body>

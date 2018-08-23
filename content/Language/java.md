@@ -19,3 +19,14 @@ String a = String.join(",", list;
 JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class, String.class);
 List<String> mapper.readValue(configStr, javaType);
 ```
+
+## list 转换为map
+```java
+Map<City, List<String>> result = Person.stream().collect(Collectors
+.groupingBy(Person::getCollege, HashMap::new, Collectors.mapping(Person::getLastName, Collectors.toList())));
+```
+```java
+Map<City, Set<String>> namesByCity = people.stream()
+    .collect(groupingBy(Person::getCity, TreeMap::new,mapping(Person::getLastName,toSet())));
+```
+
