@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="Stylesheet" type="text/css" href="/mywiki/static/css/style.css">
+    <link rel="Stylesheet" type="text/css" href="/mywiki/static/css/tango.css">
+    <link rel="shortcut icon" href="/mywiki/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/mywiki/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+    <title>nginx - Liu Yun's Wiki</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+
+  <body>
+    <div id="container">
+      
+<div id="header">
+  <div class="post-nav"><a href="/mywiki/">Home</a>&nbsp;&#187;&nbsp;<a href="/mywiki/#Tools">Tools</a>&nbsp;&#187;&nbsp;nginx
+    <span class="updated">Updated&nbsp;
+      2018-08-09 20:31
+    </span></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="page_title">nginx</div>
+
+  <h2 id="_1">安装</h2>
+<div class="hlcode"><pre><span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">nginx</span>
+</pre></div>
+
+
+<h2 id="_2">启动</h2>
+<div class="hlcode"><pre><span class="n">service</span> <span class="n">nginx</span> <span class="n">start</span>
+</pre></div>
+
+
+<h2 id="_3">修改配置信息</h2>
+<p>默认的配置信息的路径一般在<code>/etc/nginx/nginx.conf</code>,而配置的文件夹默认路径一般在<code>/usr/share/nginx/html</code> </p>
+<h2 id="_4">重启</h2>
+<div class="hlcode"><pre><span class="n">service</span> <span class="n">nginx</span> <span class="n">reload</span>
+
+<span class="n">service</span> <span class="n">nginx</span> <span class="n">restart</span>
+</pre></div>
+
+
+<h2 id="_5">卸载</h2>
+<div class="hlcode"><pre><span class="cp"># 先使用yum卸载</span>
+<span class="n">yum</span> <span class="n">remove</span> <span class="n">nginx</span>
+
+<span class="cp"># 在使用whereis查找遗漏文件</span>
+<span class="n">whereis</span> <span class="n">nginx</span>
+</pre></div>
+    </div>
+    <div id="footer">
+      <span>
+        <p>Copyright © 2018 liuyun.
+        Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
+        <p>Site Generated 2018-08-23 09:30:18</p>
+      </span>
+    </div>
+  </body>
+</html>

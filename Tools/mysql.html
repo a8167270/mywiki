@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="Stylesheet" type="text/css" href="/mywiki/static/css/style.css">
+    <link rel="Stylesheet" type="text/css" href="/mywiki/static/css/tango.css">
+    <link rel="shortcut icon" href="/mywiki/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/mywiki/favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+    <title>mysql - Liu Yun's Wiki</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+
+  <body>
+    <div id="container">
+      
+<div id="header">
+  <div class="post-nav"><a href="/mywiki/">Home</a>&nbsp;&#187;&nbsp;<a href="/mywiki/#Tools">Tools</a>&nbsp;&#187;&nbsp;mysql
+    <span class="updated">Updated&nbsp;
+      2018-08-13 15:16
+    </span></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="page_title">mysql</div>
+
+  <h1 id="mysql">Mysql操作</h1>
+<h2 id="top-n">查找每组的top N</h2>
+<h3 id="_1">连表查询</h3>
+<div class="hlcode"><pre><span class="k">select</span> <span class="n">type</span><span class="p">,</span> <span class="n">variety</span><span class="p">,</span> <span class="n">price</span>
+<span class="k">from</span> <span class="n">fruits</span>
+<span class="k">where</span> <span class="p">(</span>
+   <span class="k">select</span> <span class="nf">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">from</span> <span class="n">fruits</span> <span class="k">as</span> <span class="n">f</span>
+   <span class="k">where</span> <span class="n">f</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">.</span><span class="n">type</span> <span class="k">and</span> <span class="n">f</span><span class="p">.</span><span class="n">price</span> <span class="o">&lt;=</span> <span class="n">fruits</span><span class="p">.</span><span class="n">price</span>
+<span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+
+
+<h3 id="union-all">UNION ALL</h3>
+<div class="hlcode"><pre><span class="p">(</span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">fruits</span> <span class="k">where</span> <span class="n">type</span> <span class="o">=</span> <span class="s1">&#39;apple&#39;</span> <span class="k">order</span> <span class="k">by</span> <span class="n">price</span> <span class="k">limit</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">union</span> <span class="k">all</span>
+<span class="p">(</span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">fruits</span> <span class="k">where</span> <span class="n">type</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span> <span class="k">order</span> <span class="k">by</span> <span class="n">price</span> <span class="k">limit</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">union</span> <span class="k">all</span>
+<span class="p">(</span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">fruits</span> <span class="k">where</span> <span class="n">type</span> <span class="o">=</span> <span class="s1">&#39;pear&#39;</span> <span class="k">order</span> <span class="k">by</span> <span class="n">price</span> <span class="k">limit</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">union</span> <span class="k">all</span>
+<span class="p">(</span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">fruits</span> <span class="k">where</span> <span class="n">type</span> <span class="o">=</span> <span class="s1">&#39;cherry&#39;</span> <span class="k">order</span> <span class="k">by</span> <span class="n">price</span> <span class="k">limit</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+    </div>
+    <div id="footer">
+      <span>
+        <p>Copyright © 2018 liuyun.
+        Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
+        <p>Site Generated 2018-08-23 09:30:18</p>
+      </span>
+    </div>
+  </body>
+</html>
