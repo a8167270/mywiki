@@ -46,12 +46,20 @@
 <span class="k">union</span> <span class="k">all</span>
 <span class="p">(</span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">fruits</span> <span class="k">where</span> <span class="n">type</span> <span class="o">=</span> <span class="s1">&#39;cherry&#39;</span> <span class="k">order</span> <span class="k">by</span> <span class="n">price</span> <span class="k">limit</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
+
+
+<h2 id="_2">根据某字段自定义排序</h2>
+<div class="hlcode"><pre><span class="k">order</span> <span class="k">by</span> <span class="nf">field</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="n">str1</span><span class="p">,</span><span class="n">str2</span><span class="p">,</span><span class="n">str3</span><span class="p">,</span><span class="n">str4</span><span class="p">,,,,,,</span><span class="n">strn</span><span class="p">)</span>
+
+<span class="c1"># 例子</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">from</span> <span class="n">wc_university_special_major</span> <span class="k">order</span> <span class="k">by</span> <span class="nf">FIELD</span><span class="p">(</span><span class="n">remark</span><span class="p">,</span><span class="s2">&quot;A+&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A-&quot;</span><span class="p">,</span> <span class="s2">&quot;B+&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;B-&quot;</span><span class="p">,</span> <span class="s2">&quot;C+&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;C-&quot;</span><span class="p">)</span>
+</pre></div>
     </div>
     <div id="footer">
       <span>
         <p>Copyright © 2018 liuyun.
         Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
-        <p>Site Generated 2018-08-23 14:48:37</p>
+        <p>Site Generated 2018-08-23 14:56:17</p>
       </span>
     </div>
   </body>
