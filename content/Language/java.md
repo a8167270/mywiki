@@ -30,3 +30,13 @@ Map<City, Set<String>> namesByCity = people.stream()
     .collect(groupingBy(Person::getCity, TreeMap::new,mapping(Person::getLastName,toSet())));
 ```
 
+### List根据另一个List排序
+
+```java
+Collections.sort(listB, new Comparator<Item>() {
+    public int compare(Item left, Item right) {
+        return Integer.compare(listA.indexOf(left), listA.indexOf(right));
+    }
+});
+```
+

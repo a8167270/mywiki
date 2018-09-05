@@ -29,3 +29,12 @@ union all
 (select * from fruits where type = 'cherry' order by price limit 2)
 ```
 
+## 根据某字段自定义排序
+
+```mysql
+order by field(value,str1,str2,str3,str4,,,,,,strn)
+
+# 例子
+SELECT * from wc_university_special_major order by FIELD(remark,"A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-")
+```
+
